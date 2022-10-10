@@ -98,8 +98,9 @@ class _HomeState extends State<Home> {
                     ));
                   } else {
                     dolar =
-                        snapshot.data["results"]["currencies"]["USD"]["buy"];
-                    euro = snapshot.data["results"]["currencies"]["EUR"]["buy"];
+                        snapshot.data!["results"]["currencies"]["USD"]["buy"];
+                    euro =
+                        snapshot.data!["results"]["currencies"]["EUR"]["buy"];
 
                     return SingleChildScrollView(
                       padding: const EdgeInsets.all(10.0),
@@ -127,7 +128,7 @@ class _HomeState extends State<Home> {
   Widget buildTextFormField(String label, String prefix,
       TextEditingController controller, Function f) {
     return TextField(
-      onChanged: (_) => f,
+      onChanged: (value) => f(value),
       controller: controller,
       decoration: InputDecoration(
           labelText: label,
